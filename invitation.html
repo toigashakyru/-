@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Асан & Алия - Тойға шақыру</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #d4af37;
+            --primary-light: #f9f5ea;
+            --dark: #2c2c2c;
+            --gray: #666666;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+            --accent: #b8860b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            background-color: #fafafa;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+        }
+
+        .script-font {
+            font-family: 'Pinyon Script', cursive;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 20px;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .hero-names {
+            font-size: 4rem;
+            margin: 15px 0;
+            color: #f7e7ce;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.4);
+            border-bottom: 1px solid rgba(255,255,255,0.4);
+            padding: 8px 25px;
+        }
+
+        /* Sections General */
+        .section {
+            padding: 50px 25px;
+            text-align: center;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '♦';
+            display: block;
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-top: 5px;
+        }
+
+        /* Invitation Text */
+        .invitation-text {
+            font-size: 1.1rem;
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .parents-block {
+            background-color: var(--primary-light);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            border: 1px dashed var(--primary);
+        }
+
+        /* Date & Timer */
+        .date-display {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin: 20px 0;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .timer-item {
+            background: var(--primary-light);
+            padding: 15px 10px;
+            border-radius: 8px;
+            min-width: 70px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+        }
+
+        .timer-num {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .timer-label {
+            font-size: 0.75rem;
+            color: var(--gray);
+            text-transform: uppercase;
+        }
+
+        /* Schedule */
+        .timeline {
+            position: relative;
+            margin: 30px 0 10px;
+            padding-left: 20px;
+            text-align: left;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-light);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+            padding-left: 25px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -17px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid var(--white);
+        }
+
+        .timeline-time {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 0.95rem;
+        }
+
+        .timeline-desc {
+            font-size: 1.05rem;
+            color: var(--dark);
+        }
+
+        /* Location */
+        .venue-card {
+            background: var(--light-gray);
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .venue-name {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .venue-address {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #25D366; /* WhatsApp color */
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            margin-top: 10px;
+        }
+
+        /* Dresscode */
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .color-circle {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+
+        /* RSVP Form */
+        .form-group {
+            margin-bottom: 18px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 8px;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        footer {
+            padding: 30px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #aaa;
+            background: var(--light-gray);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- HERO SECTION -->
+        <header class="hero">
+            <div class="hero-title">Үйлену тойға шақыру</div>
+            <div class="hero-names">Асан<br>&<br>Алия</div>
+            <div class="hero-subtitle">Шымкент қаласы</div>
+        </header>
+
+        <!-- INVITATION TEXT -->
+        <section class="section">
+            <h2 class="section-title">Қадірлі қонағымыз!</h2>
+            <p class="invitation-text">
+                Сіздерді ұлымыз <strong>Асан</strong> мен келініміз <strong>Алияның</strong> 
+                шаңырақ көтеру салтанатына арналған салтанатты ақ тойымыздың қадірлі қонағы болуға шақырамыз!
+            </p>
+            <div class="parents-block">
+                <p>Той иелері:</p>
+                <h3 style="margin-top: 5px; color: var(--accent);">Той иелерінің есімдері</h3>
+            </div>
+        </section>
+
+        <!-- DATE & TIMER -->
+        <section class="section">
+            <h2 class="section-title">Той күні</h2>
+            <div class="date-display">
+                КҮН · АЙ · 2026 ЖЫЛ
+            </div>
+            <p style="color: var(--gray);">Басталуы: сағат 18:00-де</p>
+
+            <div class="timer" id="countdown">
+                <div class="timer-item">
+                    <div class="timer-num" id="days">00</div>
+                    <div class="timer-label">күн</div>
+                </div>
+                <div class="timer-item">
+                    <div class="timer-num" id="hours">00</div>
+                    <div class="timer-label">сағат</div>
+                </div>
+                <div class="timer-item">
+                    <div class="timer-num" id="minutes">00</div>
+                    <div class="timer-label">минут</div>
+                </div>
+                <div class="timer-item">
+                    <div class="timer-num" id="seconds">00</div>
+                    <div class="timer-label">секунд</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TIMELINE -->
+        <section class="section">
+            <h2 class="section-title">Той бағдарламасы</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">18:00</div>
+                    <div class="timeline-desc">Қонақтардың жиналуы & Фотосессия</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">19:00</div>
+                    <div class="timeline-desc">Жас жубайлардың салтанатты кіруі</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">19:30</div>
+                    <div class="timeline-desc">Беташар & Ак бата</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">20:00</div>
+                    <div class="timeline-desc">Салтанатты кеш & Шоу-бағдарлама</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VENUE -->
+        <section class="section">
+            <h2 class="section-title">Өтетін орны</h2>
+            <div class="venue-card">
+                <div class="venue-name">«Құлабар» рестораны</div>
+                <div class="venue-address">Шымкент қаласы, Алиев көшесі, 17</div>
+                <a href="https://2gis.kz/shymkent/search/%D0%A8%D1%8B%D0%BC%D0%BA%D0%B5%D0%BD%D1%82%20%D0%90%D0%BB%D0%B8%D0%B5%D0%B2%2017" target="_blank" class="btn">
+                    📍 2GIS арқылы картадан қарау
+                </a>
+            </div>
+        </section>
+
+        <!-- DRESS CODE -->
+        <section class="section">
+            <h2 class="section-title">Дресс-код</h2>
+            <p class="invitation-text">
+                Бiздiң тойымыздың сәнін келтіріп, төмендегі түстік гаммадағы киімдерді таңдасаңыздар қуаныштымыз:
+            </p>
+            <div class="color-palette">
+                <div class="color-circle" style="background: #E8D8C8;" title="Бежевый"></div>
+                <div class="color-circle" style="background: #D4AF37;" title="Алтын"></div>
+                <div class="color-circle" style="background: #FFFFFF; border: 1px solid #ccc;" title="Ақ"></div>
+                <div class="color-circle" style="background: #2C2C2C;" title="Қара"></div>
+            </div>
+        </section>
+
+        <!-- RSVP FORM -->
+        <section class="section">
+            <h2 class="section-title">Қатысуды растау</h2>
+            <p style="color: var(--gray); margin-bottom: 20px; font-size: 0.9rem;">
+                Тойға келетініңізді алдын ала растауыңызды өтінеміз:
+            </p>
+            <form id="rsvpForm">
+                <div class="form-group">
+                    <label>Аты-жөніңіз:</label>
+                    <input type="text" class="form-control" placeholder="Мысалы: Арман мен Айгүл" required id="guestName">
+                </div>
+                <div class="form-group">
+                    <label>Тойға келесіз бе?</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="attendance" value="Келемін" checked> Әрине, келемін!
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="attendance" value="Келе алмаймын"> Өкінішке орай...
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Жұбайыңызбен / жұбыңызбен келесіз бе?</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="couple" value="Жалғыз"> Жалғыз
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="couple" value="Жұбыммен" checked> Жұбыммен
+                        </label>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-secondary" onclick="sendToWhatsApp()" style="width: 100%;">
+                    📲 WhatsApp арқылы жауап беру
+                </button>
+            </form>
+        </section>
+
+        <footer>
+            <p>Асан & Алия · 2026</p>
+            <p>Сіздерді асыға күтеміз!</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Set target wedding date here (YYYY-MM-DD format)
+        const weddingDate = new Date("2026-11-15T18:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                document.getElementById("countdown").innerHTML = "<p>Той салтанаты басталды!</p>";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? '0' + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        function sendToWhatsApp() {
+            const name = document.getElementById("guestName").value;
+            const attendance = document.querySelector('input[name="attendance"]:checked').value;
+            const couple = document.querySelector('input[name="couple"]:checked').value;
+
+            if (!name) {
+                alert("Өтініш, аты-жөніңізді енгізіңіз!");
+                return;
+            }
+
+            // Put hosts WhatsApp number here (e.g. 77011234567)
+            const phone = "77011234567"; 
+            
+            const message = `Сәлеметсіз бе! Мен Асан мен Алияның тойына шақыру алдым.%0A%0A` +
+                            `👤 **Аты-жөнім:** ${encodeURIComponent(name)}%0A` +
+                            `✨ **Қатысуым:** ${encodeURIComponent(attendance)}%0A` +
+                            `👥 **Келу форматы:** ${encodeURIComponent(couple)}`;
+
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>
